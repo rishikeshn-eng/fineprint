@@ -1,0 +1,12 @@
+{
+  "name": "fineprint",
+  "version": "0.1.0",
+  "type": "module",
+  "private": true,
+  "description": "Did the AI change what you meant? Flags meaning changes (numbers, units, negations, must/may, dates, names) in AI-proofread text.",
+  "license": "MIT",
+  "scripts": {
+    "test": "node --test tests/",
+    "gold": "node bench/eval_gold.mjs data/gold_test.jsonl"
+  }
+}

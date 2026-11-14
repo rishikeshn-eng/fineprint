@@ -1,0 +1,83 @@
+{
+ "judge": "gemini-3.5-flash (15 batches)",
+ "n_labelled": 180,
+ "flagged_pairs": 105,
+ "clean_pairs": 75,
+ "flag_precision": [
+  53,
+  319
+ ],
+ "pair_precision": [
+  35,
+  105
+ ],
+ "per_kind_precision": {
+  "actor": [
+   26,
+   119
+  ],
+  "modal": [
+   15,
+   75
+  ],
+  "direction": [
+   19,
+   76
+  ],
+  "dropped": [
+   14,
+   46
+  ],
+  "quantifier": [
+   20,
+   61
+  ],
+  "name": [
+   1,
+   11
+  ],
+  "condition": [
+   11,
+   40
+  ],
+  "added": [
+   8,
+   16
+  ],
+  "negation": [
+   3,
+   27
+  ],
+  "date": [
+   1,
+   11
+  ],
+  "number": [
+   7,
+   20
+  ],
+  "unit": [
+   1,
+   9
+  ]
+ },
+ "missed_in_clean": [
+  4,
+  75
+ ],
+ "missed_in_flagged": [
+  5,
+  105
+ ],
+ "missed_examples": [
+  "Changed applying sunscreen condition/instructions from 'if swimming or sweating reapply' to unconditional water-resistant sunscreen application",
+  "Changed section header into sentence subject, distorting meaning of first sentence",
+  "changed sleeve fixing (installation) to sleeve repairs",
+  "Garbled phrase 'Hepatotoxicity has been reported in cases of hepatotoxicity'",
+  "Changed brown carbon (BrC) to black carbon",
+  "Omitted the parent's direct duty to comply with laws and dropped fee/commitment reduction references",
+  "Changed requested payment terms percentages/structure",
+  "Changed 'BrC' (brown carbon) to 'polycyclic aromatic hydrocarbons (PAHs)'",
+  "added new medical conditions (history of alcohol dependence, substance abuse treatment) and details not in original text"
+ ]
+}

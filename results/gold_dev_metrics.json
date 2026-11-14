@@ -1,0 +1,100 @@
+{
+ "n": 1165,
+ "tp": 573,
+ "fp": 1,
+ "fn": 5,
+ "tn": 586,
+ "precision": 0.9982578397212544,
+ "recall": 0.9913494809688581,
+ "f1": 0.9947916666666665,
+ "false_alarm_rate": 0.0017035775127768314,
+ "kind_correct_given_caught": 0.9720767888307156,
+ "per_kind": {
+  "modal": {
+   "n": 83,
+   "caught": 83,
+   "kind_right": 71
+  },
+  "negation": {
+   "n": 96,
+   "caught": 96,
+   "kind_right": 96
+  },
+  "name": {
+   "n": 94,
+   "caught": 94,
+   "kind_right": 94
+  },
+  "quantifier": {
+   "n": 68,
+   "caught": 68,
+   "kind_right": 68
+  },
+  "dropped": {
+   "n": 107,
+   "caught": 106,
+   "kind_right": 105
+  },
+  "direction": {
+   "n": 43,
+   "caught": 42,
+   "kind_right": 42
+  },
+  "unit": {
+   "n": 20,
+   "caught": 18,
+   "kind_right": 18
+  },
+  "number": {
+   "n": 42,
+   "caught": 41,
+   "kind_right": 41
+  },
+  "condition": {
+   "n": 19,
+   "caught": 19,
+   "kind_right": 19
+  },
+  "date": {
+   "n": 6,
+   "caught": 6,
+   "kind_right": 3
+  }
+ },
+ "by_domain": {
+  "legal": {
+   "tp": 195,
+   "fp": 0,
+   "fn": 2,
+   "tn": 200
+  },
+  "medical": {
+   "tp": 200,
+   "fp": 0,
+   "fn": 0,
+   "tn": 200
+  },
+  "everyday": {
+   "tp": 178,
+   "fp": 1,
+   "fn": 3,
+   "tn": 186
+  }
+ },
+ "ms_per_pair": 0.8475670240343347,
+ "false_alarms": [],
+ "misses": [
+  {
+   "id": "legal30_unit",
+   "kind": "unit",
+   "orig": "Except as otherwise provided in Sections III.E.1.b.  and IV., in the event the Company, in its sole discretion, determines that your employment is terminated ot",
+   "edit": "Except as otherwise provided in Sections III.E.1.b. and IV., in the event the Company, in its sole discretion, determines that your employment is terminated oth"
+  },
+  {
+   "id": "legal150_unit",
+   "kind": "unit",
+   "orig": "Notice of each meeting shall be in writing and shall state the meeting’s place, day and hour, and, in case of a special meeting, the purposes for which the meet",
+   "edit": "Notice of each meeting shall be in writing and shall state the meeting’s place, day and hour, and in case of a special meeting, the purposes for which the meeti"
+  }
+ ]
+}

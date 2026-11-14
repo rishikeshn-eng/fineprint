@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>fineprint · did the AI change what you meant?</title>
+<meta name="description" content="You asked an AI to fix the grammar. fineprint shows when it also changed a number, a unit, a 'not', a 'shall' to 'may', a date or a name. Measured on 3 local LLMs proofreading contracts, drug labels and real user text. Plus Red Pen, a game for spotting sneaky edits.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,800;0,9..144,900;1,9..144,800&family=Newsreader:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Mono:wght@400;600;700&family=Caveat:wght@700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="mast"><div class="wrap">
+  <div class="dateline"><span>AI safety desk</span><span id="today"></span><span>Free · runs in your browser</span></div>
+  <div class="title">The <em>fine</em>print</div>
+  <nav><a href="#play">Red Pen game</a><a href="#check">Check an edit</a><a href="#study">The study</a><a href="#method">Method</a><a href="https://github.com/rishikeshn-eng/fineprint" target="_blank" rel="noopener">GitHub ↗</a></nav>
+</div></header>
+
+<main class="wrap">
+  <article class="lead">
+    <div>
+      <h1 id="headline">Make it sound professional, it said. Half the time it changed what you meant.</h1>
+      <p class="deck">"Keep the meaning exactly the same." Asked to polish contracts, drug labels and everyday messages, small language models changed what the text actually says (a dose, a deadline, a condition, a "shall" that became a "may") in about half of their professional rewrites, and in about 1 in 12 plain grammar fixes. fineprint points you at the edits worth checking.</p>
+      <div class="byline">A tool, a benchmark and a game · by Rishikesh</div>
+      <p class="dropcap">People hand contracts, prescriptions and emails to chatbots with one instruction: keep the meaning. A diff tool shows every changed comma. fineprint shows only the changes that alter what the text <i>says</i>: numbers and units, dates, negations, obligations (must, shall, may), scope (all, some, only), conditions (if, unless), direction (before, after), who does what, and clauses that silently disappear.</p>
+      <p><a class="btn red" href="#play">✒ Play Red Pen</a> <a class="btn" href="#check">Check my edit</a></p>
+    </div>
+    <aside class="figures" id="figures"></aside>
+  </article>
+
+  <section id="play">
+    <div class="section-head"><span class="num">01</span><h2>Red Pen</h2><span class="note">a proofreading game</span></div>
+    <p>On the left is what you wrote. On the right is what the AI handed back. If a word changes the meaning, tap it. If something important disappeared, press <b>✂ Something was cut</b>. If it's only style, press <b>✓ Clean</b>. Climb from Intern to Editor-in-Chief.</p>
+    <div class="desk">
+      <div class="hud"><span class="rank" id="rank">Intern</span><span id="score">0</span><span id="streak">streak 0</span><span class="lives" id="lives">✒✒✒</span><span id="round">round 1</span><div class="ink" id="ink"><i style="width:100%"></i></div></div>
+      <div class="sheets">
+        <div class="sheet orig"><div class="label"><span>Your text</span><span id="domain"></span></div><div id="orig"></div></div>
+        <div class="sheet edit"><div class="label"><span>After "fix the grammar"</span><span id="src"></span></div><div id="edit"></div><div id="stampbox"></div></div>
+      </div>
+      <div class="choices">
+        <span class="hint" id="hint">Pick a deck and press Start.</span>
+        <select id="deck" class="btn" aria-label="Deck"><option value="mixed">Deck: mixed</option><option value="ai">Deck: real AI edits</option><option value="synthetic">Deck: training desk</option></select>
+        <button class="btn red" id="start">Start ▶</button>
+        <button class="btn hidden" id="clean">✓ Clean</button>
+        <button class="btn hidden" id="cut">✂ Something was cut</button>
+        <button class="btn red hidden" id="submit">Mark it ✒</button>
+        <button class="btn hidden" id="next">Next page →</button>
+      </div>
+      <div id="explain"></div>
+      <div class="endcard hidden" id="end"></div>
+    </div>
+  </section>
+
+  <section id="check">
+    <div class="section-head"><span class="num">02</span><h2>Check an AI edit</h2><span class="note">nothing leaves your browser</span></div>
+    <div class="tool">
+      <div><div class="label small">Original</div><textarea id="a" spellcheck="false"></textarea></div>
+      <div><div class="label small">AI version</div><textarea id="b" spellcheck="false"></textarea></div>
+    </div>
+    <p><button class="btn" data-ex="0">Example: contract</button> <button class="btn" data-ex="1">Example: dosage</button> <button class="btn" data-ex="2">Example: style only</button></p>
+    <div class="grid2">
+      <div><div class="bigverdict" id="verdict"></div><div class="marked" id="marked"></div><div class="key"><span><i class="sev3"></i>meaning changed</span><span><i class="sev2"></i>check this</span><span><i class="sev1"></i>minor</span><span><i class="sev0"></i>style</span></div></div>
+      <div><h3>What changed</h3><div class="changes" id="changes"></div></div>
+    </div>
+  </section>
+
+  <section id="study">
+    <div class="section-head"><span class="num">03</span><h2>The study</h2><span class="note">how often "keep the meaning" isn't kept</span></div>
+    <p id="studyintro"></p>
+    <div class="grid2">
+      <div><h3>Proofreads with a flagged critical change</h3><div class="key"><span><i style="background:var(--red)"></i>"Fix the grammar"</span><span><i style="background:var(--blue)"></i>"Make it more professional"</span></div><div id="bymodel"></div></div>
+      <div><h3>By kind of text</h3><div id="bydomain"></div><p class="note">Share of proofreads with at least one critical change (number, unit, negation, obligation or date), all models pooled.</p></div>
+    </div>
+    <div class="grid2" style="margin-top:24px">
+      <div><h3>What changes</h3><div id="bykind"></div><p class="note">Share of "fix the grammar" proofreads with each kind of flagged change, all models pooled.</p></div>
+      <div><h3>Is fineprint right?</h3><div id="judge" class="scroll"></div></div>
+    </div>
+    <h3 style="margin-top:28px">Clippings: real edits, confirmed by the judge</h3>
+    <div class="col" id="clips"></div>
+  </section>
+
+  <section id="method">
+    <div class="section-head"><span class="num">04</span><h2>Method and limits</h2></div>
+    <div class="col">
+      <p><b>Passages.</b> 587 texts people really ask a chatbot to polish: 200 contract clauses (LEDGAR), 200 dosage and warning paragraphs from FDA drug labels (openFDA), and 187 messages where a real user asked ChatGPT to fix their grammar (WildChat-1M and ShareGPT).</p>
+      <p><b>Proofreaders.</b> Qwen3-1.7B on all 587 passages; Llama-3.2-3B and Gemma-3-4B on a fixed subset of 100 per domain. Each got two instructions, "Fix the grammar and spelling … do not change its meaning" and "Rewrite … more professional, keep the meaning exactly the same", with greedy decoding on a laptop (MLX, 4-bit).</p>
+      <p><b>Detector.</b> A token-level diff (Myers), then each changed span is checked for number values (3 = three, 1,000 = 1000), units counted with synonyms ("per day" = "daily"), negations (don't = do not), modal strength, quantifiers, conditions, direction classes, actors, capitalised names, and dropped clauses. A category only counts if it also differs across the whole sentence, so a word that merely moved isn't flagged. Typo fixes ("subjcet" → "subject") are paired off first.</p>
+      <p><b>Gold sets.</b> Each passage edited twice: 2 to 4 harmless proofreading edits (typos, commas, synonyms, contractions, digits to words, British to US spelling), plus one planted meaning change of a known kind in half the pairs. Seed 7 was used for development; seed 11 was held out and run once.</p>
+      <p><b>Validation.</b> Version 0.1 was tuned only on Qwen's outputs. A Gemini 3.5 Flash judge then labelled 180 Llama and Gemma proofreads: 105 that fineprint flagged, checking each flag, and 75 it didn't, looking for misses. Version 0.2 compares counts across the whole passage, not just the sentence, and demotes "who does it" changes to minor. It was developed on the Llama labels and measured on the Gemma labels. The headline rates are judge-corrected: flag rate × judge precision + unflagged rate × judge miss rate, with bootstrap 95% CIs.</p>
+      <p><b>What the judge found.</b> On real edits from Llama and Gemma, the models it was not tuned on, fineprint rarely misses: only 4 of 75 unflagged edits hid a meaning change. But on "fix the grammar" edits only about 4 in 10 of its flags are real meaning changes (8 of 21 on the held-out model), and on full "professional" rewrites about 1 in 8 (12 of 101). The synthetic gold sets, at 99.8% precision, badly overstated this. Treat fineprint as a highlighter that says where to look, not as a verdict.</p>
+      <p><b>Limits.</b> It reads words, not meaning: a paraphrase that changes meaning without touching a number, a negation or a keyword ("the tenant pays" → "the landlord pays" without the word "tenant") can slip by. Rewrites for "professional" tone change so many words that flags pile up; read the judge numbers before trusting a count. English only. The judge is itself a model.</p>
+    </div>
+    <h3 style="margin-top:20px">Gold-set results</h3>
+    <div class="scroll" id="gold"></div>
+  </section>
+</main>
+<footer class="wrap">Built by <a href="https://rishikeshn-eng.github.io/">Rishikesh</a> · MIT licensed · <a href="https://github.com/rishikeshn-eng/fineprint">code and reproduction</a> · Passages: LEDGAR (CC BY-SA), openFDA (public domain), WildChat-1M (ODC-BY), ShareGPT. Game clippings use only the contract and drug-label text.</footer>
+<script type="module" src="app.js"></script>
+</body>
+</html>

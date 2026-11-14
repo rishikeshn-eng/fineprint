@@ -1,0 +1,52 @@
+{
+ "dev (Llama)": {
+  "pairs": 89,
+  "v1_flags": 171,
+  "v1_true": 32,
+  "v2_flags": 133,
+  "v2_true": 29,
+  "true_dropped": 3,
+  "v1_pairs_flagged": 54,
+  "v2_pairs_flagged": 46,
+  "v1_pairs_real": 21,
+  "v2_pairs_real": 20,
+  "clean_pairs": 35,
+  "clean_missed": 2,
+  "v2_new_unjudged": 7,
+  "v2_by_task": {
+   "grammar": [
+    5,
+    23
+   ],
+   "professional": [
+    24,
+    110
+   ]
+  }
+ },
+ "test (Gemma)": {
+  "pairs": 91,
+  "v1_flags": 148,
+  "v1_true": 21,
+  "v2_flags": 122,
+  "v2_true": 20,
+  "true_dropped": 1,
+  "v1_pairs_flagged": 51,
+  "v2_pairs_flagged": 43,
+  "v1_pairs_real": 14,
+  "v2_pairs_real": 13,
+  "clean_pairs": 40,
+  "clean_missed": 2,
+  "v2_new_unjudged": 8,
+  "v2_by_task": {
+   "professional": [
+    12,
+    101
+   ],
+   "grammar": [
+    8,
+    21
+   ]
+  }
+ }
+}

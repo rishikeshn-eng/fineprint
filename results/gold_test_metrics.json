@@ -1,0 +1,119 @@
+{
+ "n": 1166,
+ "tp": 572,
+ "fp": 1,
+ "fn": 7,
+ "tn": 586,
+ "precision": 0.9982547993019197,
+ "recall": 0.9879101899827288,
+ "f1": 0.9930555555555556,
+ "false_alarm_rate": 0.0017035775127768314,
+ "kind_correct_given_caught": 0.9825174825174825,
+ "per_kind": {
+  "modal": {
+   "n": 70,
+   "caught": 70,
+   "kind_right": 63
+  },
+  "negation": {
+   "n": 106,
+   "caught": 106,
+   "kind_right": 106
+  },
+  "quantifier": {
+   "n": 58,
+   "caught": 58,
+   "kind_right": 58
+  },
+  "name": {
+   "n": 84,
+   "caught": 84,
+   "kind_right": 84
+  },
+  "number": {
+   "n": 48,
+   "caught": 45,
+   "kind_right": 45
+  },
+  "direction": {
+   "n": 42,
+   "caught": 41,
+   "kind_right": 41
+  },
+  "dropped": {
+   "n": 115,
+   "caught": 113,
+   "kind_right": 113
+  },
+  "condition": {
+   "n": 26,
+   "caught": 26,
+   "kind_right": 26
+  },
+  "date": {
+   "n": 5,
+   "caught": 5,
+   "kind_right": 2
+  },
+  "unit": {
+   "n": 25,
+   "caught": 24,
+   "kind_right": 24
+  }
+ },
+ "by_domain": {
+  "legal": {
+   "tp": 196,
+   "fp": 1,
+   "fn": 1,
+   "tn": 199
+  },
+  "medical": {
+   "tp": 197,
+   "fp": 0,
+   "fn": 3,
+   "tn": 200
+  },
+  "everyday": {
+   "tp": 179,
+   "fp": 0,
+   "fn": 3,
+   "tn": 187
+  }
+ },
+ "ms_per_pair": 0.8633786809605488,
+ "false_alarms": [
+  {
+   "id": "legal183_neg",
+   "flags": [
+    "condition: \"In the event that\" -> \"if\""
+   ]
+  }
+ ],
+ "misses": [
+  {
+   "id": "legal177_dropped",
+   "kind": "dropped",
+   "orig": "Purchaser is an Indiana limited liability company duly organized, and validly existing, under the laws of Indiana and has full power and authority to carry on t",
+   "edit": "Purchaser is an Indiana limited liability company duly organized, under the laws of Indiana and has full power and authority to carry on the business in which i"
+  },
+  {
+   "id": "medical21_direction",
+   "kind": "direction",
+   "orig": "Sixteen (7.9%) patients had decreases in lumbar spine bone mineral density > 4%, and all the other patients (92%) did not have significant decreases or had incr",
+   "edit": "Sixteen (7.9%) patients had decreases in lumbar spine bone mineral density > 4%, and all the other patients (92%) did not have significant decreases or had incr"
+  },
+  {
+   "id": "medical112_unit",
+   "kind": "unit",
+   "orig": "Dosage Adjustment for Patients with Impaired Renal Function: Bupropion hydrochloride extended-release tbalets (XL) should be used with caution in patients with ",
+   "edit": "Dosage Adjustment for Patients with Impaired Renal Function: Bupropion hydrochloride extended-release capsules (XL) should be used with caution in patients with"
+  },
+  {
+   "id": "medical157_number",
+   "kind": "number",
+   "orig": "8. In the event of an acute flare-up of the disease process, it may be necessary to return to a full suppressive daily divided corticoid dose for control. Once ",
+   "edit": "9. In the event of an acute flare-up of the disease process, it may be necessary to return to a full suppressive daily divided corticoid dose for control. Once "
+  }
+ ]
+}

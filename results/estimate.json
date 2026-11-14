@@ -1,0 +1,36 @@
+{
+ "grammar": {
+  "estimate": 0.08412222222222222,
+  "ci95": [
+   0.04041944444444444,
+   0.13173333333333334
+  ],
+  "p_flagged": 0.27166666666666667,
+  "n_proofreads": 600,
+  "real_given_flagged": [
+   8,
+   48
+  ],
+  "real_given_unflagged": [
+   4,
+   75
+  ]
+ },
+ "professional": {
+  "estimate": 0.5089730994152047,
+  "ci95": [
+   0.38775087719298246,
+   0.6346666666666666
+  ],
+  "p_flagged": 0.9633333333333334,
+  "n_proofreads": 600,
+  "real_given_flagged": [
+   30,
+   57
+  ],
+  "real_given_unflagged": [
+   4,
+   75
+  ]
+ }
+}
